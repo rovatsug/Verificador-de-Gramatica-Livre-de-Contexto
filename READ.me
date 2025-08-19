@@ -1,0 +1,24 @@
+PDA - Pushdown automaton.
+
+Este trabalho foi desenvolvido pelos alunos Luci Pastório (de registro acadêmico 2607557) 
+e Gustavo Richter (2588390, respectivamente).
+O programa aceita como entrada a descrição de uma Linguagem Livre de Contexto, na forma 
+de um PDA, e uma sequência de palavras. O retorno informa se cada uma das palavras pertence 
+a linguagem, ou não. Caso pertença, o programa tem como default a impressão da computação 
+de cada uma dessas palavras - que pode ser desativado - chamando dentro da função "main", 
+"processWords(PushdownAutomaton)" ao invés de "processWordsWithComputation(PushdownAutomaton)".
+
+A função "buildingPda()" cria o PDA a partir das informações inseridas, no formato indicado
+pelo arquivo "enunciado.pdf".
+Já "builtPda(PushdownAutomaton)" imprime todo PDA definido, para verificar se a construção
+está correta. Ele deve ser chamado na função "main" apos a construção do PDA e antes de 
+inserir as palavras - o que não ocorre por default.
+O procedimento "destroyPda(PushdownAutomaton)" libera toda memória alocada dinamicamente
+para a construção do PDA.
+
+O que não é tratado de forma específica no "enunciado.pdf": palavras vazias (&) concatenadas 
+com quaisquer outras pertencentes ao alfabeto das linguagens, por exemplo: aaaa.&.bbbb serão 
+tratadas simplesmente como: aaaa.bbbb. Ou ainda: a.&.a.&.b.&.b.& é esquivalente a: aabb.
+Na prática, é possível supor que para cada estado, existe uma transição para ele mesmo que
+consome com um caractere vazio, sem alterar a pilha - e independente de seu topo.
+
